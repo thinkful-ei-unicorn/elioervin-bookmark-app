@@ -1,4 +1,4 @@
-const BASE_URL = 'https://thinkful-list-api.herokuapp.com/elioervin/bookmark';
+const BASE_URL = 'https://thinkful-list-api.herokuapp.com/elioervin';
 
 /**
  * listApiFetch - Wrapper function for native `fetch` to standardize error handling. 
