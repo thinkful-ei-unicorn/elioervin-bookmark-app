@@ -4,8 +4,8 @@ import store from './store';
 
 
 const generateHtml = function(htmlList) {
-    let listHtml = htmlList.map(array => generateUi(array));  
-    return `<div id="buttons" class="buttons">
+  let listHtml = htmlList.map(array => generateUi(array));  
+  return `<div id="buttons" class="buttons">
     <div class="for-new-button">
         <button id="new-button" class="new-button">Add New</button>
     </div>
@@ -21,42 +21,42 @@ const generateHtml = function(htmlList) {
 </div>
 <div class="main-display" id="main-display">
 ${listHtml.join('')}
-</div>`
-}
+</div>`;
+};
 
 const generateUi = function (array) {
-    if (array.rating >= store.storeItems.filter) {
-        if(array.expanded === true){
-            return panelView(array);
-        } else {
-            return defaultView(array);
-        }
+  if (array.rating >= store.storeItems.filter) {
+    if(array.expanded === true){
+      return panelView(array);
+    } else {
+      return defaultView(array);
     }
-}
+  }
+};
 
 
 
 const defaultView = function (array) {
-    let displayRating;
-    let starClicked = array.rating;
-    const starHTML = `<span class="fa fa-star checked"></span>`;
-    displayRating = starHTML.repeat(starClicked);
-    return `<div class="content">
+  let displayRating;
+  let starClicked = array.rating;
+  const starHTML = '<span class="fa fa-star checked"></span>';
+  displayRating = starHTML.repeat(starClicked);
+  return `<div class="content">
             <button type="button" class="collapsible" id="bookmark-content" data-bookmark-id="${array.id}">
                 <div class="button-text" id="button-text">${array.title}</div>
                 <div class="etoiles">
                     ${displayRating}
                 </div>
             </button> </div>
-            `
-}
+            `;
+};
 
 const panelView = function (array) {
-    let displayRating;
-    let starClicked = array.rating;
-    const starHTML = `<span class="fa fa-star checked"></span>`;
-    displayRating = starHTML.repeat(starClicked);
-    return `<div class="content">
+  let displayRating;
+  let starClicked = array.rating;
+  const starHTML = '<span class="fa fa-star checked"></span>';
+  displayRating = starHTML.repeat(starClicked);
+  return `<div class="content">
     <button type="button" class="collapsible" id="bookmark-content" data-bookmark-id="${array.id}">
         <div class="button-text" id="button-text">${array.title}</div>
         <div class="etoiles">
@@ -71,11 +71,11 @@ const panelView = function (array) {
     <p id='drop-down-text'>
         ${array.desc}           
     </p>
-</div>` 
-}
+</div>`; 
+};
 
 function addBookmark() {
-    return `<div class="add-bookmark">
+  return `<div class="add-bookmark">
     <form class="form-add">
         <div class="url-input">
         <label for="url">Add new bookmark:</label>
@@ -106,12 +106,12 @@ function addBookmark() {
             </div>
         </label>
     </form>
-</div>`
+</div>`;
 }
 
 
 
 export default {
-    generateHtml,
-    addBookmark
-}
+  generateHtml,
+  addBookmark
+};
